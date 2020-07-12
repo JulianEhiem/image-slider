@@ -1,53 +1,59 @@
-:root {
-  --mainWhite: #f2fdff;
-  --mainBlue: #3e92cc;
-}
-.max-height {
-  min-height: 100vh;
-}
-body {
-  background: var(--mainWhite);
-}
-.img-container {
-  min-height: 60vh;
-  background: url("../img/contBcg-0.jpeg") center/cover fixed no-repeat;
-  border: 0.5rem solid var(--mainBlue);
-  border-radius: 0.5rem;
-  position: relative;
-}
-@media screen and (min-width: 768px) {
-  .img-container {
-    min-height: 80vh;
-  }
+*:root {
+  --mainWhite: #fff8e7;
+  --mainBlue: #89cff0;
 }
 
-.btn-left {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  background: var(--mainBlue);
-  color: var(--mainWhite) !important;
-  transform: translate(-50%, -50%);
-  border: 0.2rem solid var(--mainBlue);
-  font-size: 1.2rem;
-}
-.btn-left:hover {
-  border-color: var(--mainBlue);
+body {
+  display: grid;
   background: var(--mainWhite);
-  color: var(--mainBlue) !important;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: minmax(20px, 1fr) minmax(350px, 1fr) minmax(20px, 1fr);
+  grid-template-rows: minmax(5px, 1fr) minmax(270px, max-content) minmax(
+      5px,
+      1fr
+    );
+  grid-template-areas:
+    ".. .. .."
+    ".. slider .."
+    ".. .. ..";
+}
+.container {
+  grid-area: slider;
+  box-sizing: content-box;
+  padding: 10px;
+  text-align: center;
+}
+.slide-container {
+  background: var(--mainBlue);
+  box-sizing: content-box;
+  max-width: 450px;
+  max-height: 400px;
+  padding: 4px;
+}
+.img-container {
+  background: url(../img/image1-400x400.jpg) center/cover no-repeat;
+  min-height: 400px;
+  max-height: 400px;
+  max-width: 450px;
+  position: relative;
+}
+.btn {
+  background: lightcoral;
+  position: absolute;
+}
+.btn:hover {
+  width: 34px;
+  height: 40px;
+  background-color: lightskyblue;
+}
+.btn-left {
+  top: calc(50% - 19px);
+  left: -10px;
 }
 .btn-right {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  background: var(--mainBlue);
-  color: var(--mainWhite) !important;
-  font-size: 1.2rem;
-  transform: translate(50%, -50%);
-  border: 0.2rem solid var(--mainBlue);
-}
-.btn-right:hover {
-  border-color: var(--mainBlue);
-  background: var(--mainWhite);
-  color: var(--mainBlue) !important;
+  top: calc(50% - 19px);
+  right: -10px;
 }
